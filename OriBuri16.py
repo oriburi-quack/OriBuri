@@ -48,20 +48,6 @@ def getTif(path, file):
     type of filename have to be list
     dtype: 'grd' for GRD files, 'slc' for slc files
     '''
-    print('')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
-    print('getTif')
-    print('')
-    print('Copyright (c) Seungjun Lee')
-    print('              Sejong Univ. (Seoul, South Korea)')
-    print('              Department of Energy Resource Engineering')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
     import rasterio
     
     with rasterio.open(path + file) as src:
@@ -108,20 +94,6 @@ def getSubset (path, file, lon, lat, platform):
     dtype: 'grd' for GRD files, 'slc' for slc files
     lon, lat must be tuple
     '''
-    print('')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
-    print('getSubset')
-    print('')
-    print('Copyright (c) Seungjun Lee')
-    print('              Sejong Univ. (Seoul, South Korea)')
-    print('              Department of Energy Resource Engineering')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
 
     import rasterio
 
@@ -144,20 +116,6 @@ def getSubset (path, file, lon, lat, platform):
             'coords': (xmin, ymin, xmax, ymax)}
         
 def tif_match (stack):
-    print('')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
-    print('tif_match')
-    print('')
-    print('Copyright (c) Seungjun Lee')
-    print('              Sejong Univ. (Seoul, South Korea)')
-    print('              Department of Energy Resource Engineering')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
 
     prod = stack.copy()
     
@@ -180,21 +138,6 @@ def tif_match (stack):
     return prod
 
 def save_tif(product, path):
-    print('')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
-    print('save_tif')
-    print('')
-    print('Copyright (c) Seungjun Lee')
-    print('              Sejong Univ. (Seoul, South Korea)')
-    print('              Department of Energy Resource Engineering')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
-
     import rasterio
     from rasterio import Affine
 
@@ -211,24 +154,7 @@ def save_tif(product, path):
         dst.write(data['Band'], 1)
 
 def save_file(product, path):
-
-    print('')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
-    print('save_file')
-    print('')
-    print('Copyright (c) Seungjun Lee')
-    print('              Sejong Univ. (Seoul, South Korea)')
-    print('              Department of Energy Resource Engineering')
-    print('')
-    print('######################################################################')
-    print('')
-    print('')
-
     if path[-3::] == 'npy':
-        
         import numpy as np
         np.save(path, product['Band'])
         print('###  Product has been Saved as .npy  ###')
@@ -240,7 +166,6 @@ def save_file(product, path):
         print('###  Product has been Saved as .pkl  ###')
 
 def imgshow (img, clim, title):
-
     '''
     show input image
 
@@ -248,7 +173,6 @@ def imgshow (img, clim, title):
     clim: set color axis as tuple
     title: set image title
     '''
-
 
     def onclick(event):
         if event.button == 1:
@@ -457,7 +381,6 @@ def calibration (data, platform):
     return result
 
 def makePolygon (product):
-
     '''
     show input image
 
@@ -498,7 +421,6 @@ def makePolygon (product):
     return polygon_coord, mask
 
 def getENL (product, mode):
-
     print('')
     print('')
     print('######################################################################')
@@ -513,6 +435,7 @@ def getENL (product, mode):
     print('######################################################################')
     print('')
     print('')
+    
     if mode == 'single':
         polygon_coord, mask = makePolygon(product)
         del polygon_coord
@@ -553,7 +476,6 @@ def getENL (product, mode):
     return enl
 
 def getFBR (product, alpha, enl):
-
     '''
     returns Frozen Background Rference Image
 
@@ -566,7 +488,6 @@ def getFBR (product, alpha, enl):
     Thibault Taillade, Laetitia Thirion-Lefevre and Régis Guinvarc’h, 2020.
     Detecting Ephemeral Objects in SAR Time-Series Using Frozen Background-Based Change Detection,
     MDPI, Remote Sens. 2020, 12(11), 1720; https://doi.org/10.3390/rs12111720
-
     '''
     print('')
     print('')
@@ -640,7 +561,6 @@ def cfar_fft(data, alpha, win_size):
     alph: False alarm rate
     win_size: must be integer odd number
     '''
-    
     print('')
     print('')
     print('CFAR (Constant False Alarm Rate) Detector')
@@ -752,10 +672,8 @@ def ca_cfar(product, GUARD_CELLS, BG_CELLS, ALPHA):
     print('')
     print('')
     print('######################################################################')
-
     print('')
     print('')
-
     from alive_progress import alive_bar
 
     CFAR_UNITS = 1 + (GUARD_CELLS * 2) + (BG_CELLS * 2)
@@ -899,7 +817,6 @@ def lee_filter(data, size):
     print('')
     print('')
     print('######################################################################')
-
     print('')
     print('')
     print('Kernel size:', size)
