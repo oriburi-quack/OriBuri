@@ -3,8 +3,8 @@
 # ####    OriBuri (Originated From SIPAS, (c) GEO-CODING)            #
 # ####                                                               #
 # ####    Copyright(c) Seungjun Lee                                  #
-# ####                   Sejong Univ. (Seoul, South Korea)           #
-# ####                   Department of Energy Resources Engineering  #
+# ####                   Yonsei Univ. (Seoul, South Korea)           #
+# ####                   Department of Earth System Science          #
 # ####                                                               #
 # ####    Version: 1.6                                               #
 # ####    last update : 2024.06.03                                   #
